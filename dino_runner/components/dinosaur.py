@@ -1,3 +1,4 @@
+#Projeto de Fernando Marques dos Santos
 #Importando pygame e constants de imagem
 import pygame
 from dino_runner.utils.constants import DUCKING, RUNNING, JUMPING
