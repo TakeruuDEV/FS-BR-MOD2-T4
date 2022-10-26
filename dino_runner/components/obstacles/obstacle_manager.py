@@ -11,13 +11,13 @@ class ObstacleManager:
         self.obstacles = []
 
     def update(self, game):
-        
+        randomNumber = random.randint(0,2)       
         if len(self.obstacles) == 0:
-            if random.randint(0,2) == 0:
+            if randomNumber == 0:
                 self.obstacles.append(Cactus(SMALL_CACTUS))
-            elif random.randint(0,2) == 1:
+            elif randomNumber == 1:
                 self.obstacles.append(LargeCactus(LARGE_CACTUS))  
-            elif random.randint(0,2) == 2:
+            elif randomNumber == 2:
                 self.obstacles.append(Bird(BIRD))
 
 
