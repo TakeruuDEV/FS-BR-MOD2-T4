@@ -5,6 +5,9 @@ from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
 from dino_runner.components.power_ups.power_up_manager import PowerUpManager
 
+FONT_SIZE_DISPLAY = 32
+BASE_GAME_SPEED = 20
+BASE_SCORE = 0
 class Game:
     def __init__(self):
         pygame.init()
@@ -16,13 +19,13 @@ class Game:
         self.obstacle_manager = ObstacleManager()
         self.power_up_manager = PowerUpManager()
      
-        self.score = 0
+        self.score = BASE_SCORE
         self.clock = pygame.time.Clock()
         self.playing = False
         self.executing = False
         self.count_death = 0
         
-        self.game_speed = 20
+        self.game_speed = BASE_GAME_SPEED
         self.x_pos_bg = 0
         self.y_pos_bg = 380
 
@@ -49,8 +52,6 @@ class Game:
         pygame.display.quit()
         pygame.quit()  
             
-        pygame.display.quit()
-        pygame.quit()
     
     def draw_power_up_time(self):
         if self.player.has_power_up:
@@ -83,7 +84,7 @@ class Game:
     
     def display_menu(self):
         self.screen.fill((255,255,255))
-        font_size = 30
+        font_size = FONT_SIZE_DISPLAY
         color = (0,0,0)
         font_type = 'freesansbold.ttf'
         font = pygame.font.Font(font_type, font_size)
@@ -98,7 +99,7 @@ class Game:
 
     def death_menu(self):
         self.screen.fill((255,255,255))
-        font_size = 30
+        font_size = FONT_SIZE_DISPLAY
         color = (0,0,0)
         font_type = 'freesansbold.ttf'
         font = pygame.font.Font(font_type, font_size)
@@ -138,6 +139,7 @@ class Game:
             if event.type == pygame.KEYDOWN:
                 self.reset()
                 self.run()
+
     
     def events(self):
         for event in pygame.event.get():
@@ -165,9 +167,9 @@ class Game:
             self.game_speed+=5
     
     def reset(self):
-        self.score = 0
+        self.score = BASE_SCORE
         self.playing = True
-        self.game_speed = 20
+        self.game_speed = BASE_GAME_SPEED
         self.obstacle_manager.reset_obstacles()
         self.power_up_manager.reset_power_up()
         
@@ -189,7 +191,7 @@ class Game:
 
     def draw_score(self):
                 
-        font_size = 32
+        font_size = FONT_SIZE_DISPLAY
         color = (0,0,0)
         FONT = 'freesansbold.ttf'
         
