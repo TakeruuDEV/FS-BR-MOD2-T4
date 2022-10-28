@@ -13,11 +13,10 @@ class PowerUpManager:
     def generate_power_up(self,score):
         self.randomNumber = random.randint(0,1)
         if len(self.power_ups) == 0 and self.to_appears == score:
+            self.to_appears += random.randint(200, 300)
             if self.randomNumber == 0: 
-                self.to_appears += random.randint(200, 300)
                 self.power_ups.append(Shield())
             elif self.randomNumber == 1:
-                self.to_appears += random.randint(200, 300)
                 self.power_ups.append(Hammer())            
     
     def update(self, game):

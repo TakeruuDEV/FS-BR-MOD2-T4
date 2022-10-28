@@ -75,3 +75,6 @@ DEFAULT_TYPE = "default"
 
 SHIELD_TYPE = "shield"
 HAMMER_TYPE = "hammer"
+
+BACKGROUND_SOUND = "dino_runner/assets/sounds/X2Download (mp3cut.net).mp3"
+BIRD_SOUND = "dino_runner/assets/sounds/flamengo.wav"

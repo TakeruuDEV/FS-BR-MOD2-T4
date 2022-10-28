@@ -36,9 +36,6 @@ class Dinosaur(Sprite):
         self.has_shield = False
         self.has_power_up = False
         self.has_hammer = False
-        #self.power_up_time = 0
-        #self.shield_time_up = 0
-        
         
         
     def run(self):

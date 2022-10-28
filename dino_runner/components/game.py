@@ -1,6 +1,6 @@
 import pygame
 
-from dino_runner.utils.constants import BG, ICON, RESET, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE
+from dino_runner.utils.constants import BACKGROUND_SOUND, BG, ICON, RESET, SCREEN_HEIGHT, SCREEN_WIDTH, TITLE, FPS, DEFAULT_TYPE
 from dino_runner.components.dinosaur import Dinosaur
 from dino_runner.components.obstacles.obstacle_manager import ObstacleManager
 from dino_runner.components.power_ups.power_up_manager import PowerUpManager
@@ -8,10 +8,7 @@ from dino_runner.components.power_ups.power_up_manager import PowerUpManager
 FONT_SIZE_DISPLAY = 32
 BASE_GAME_SPEED = 20
 BASE_SCORE = 0
-
-pygame.init()
-background_sound_jojo = pygame.mixer.music.load('X2Download (mp3cut.net).mp3')
-pygame.mixer.music.play(-1)
+from pygame import mixer
 
 class Game:
     def __init__(self):
@@ -19,7 +16,8 @@ class Game:
         pygame.display.set_caption(TITLE)
         pygame.display.set_icon(ICON)
         self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
+        mixer.music.load(BACKGROUND_SOUND)
+        mixer.music.play(-1)
         self.player = Dinosaur()
         self.obstacle_manager = ObstacleManager()
         self.power_up_manager = PowerUpManager()
@@ -42,7 +40,6 @@ class Game:
             self.events()
             self.update()
             self.draw()
-        #pygame.quit()
 
     def execute(self):
         self.executing = True
