@@ -8,6 +8,11 @@ from dino_runner.components.power_ups.power_up_manager import PowerUpManager
 FONT_SIZE_DISPLAY = 32
 BASE_GAME_SPEED = 20
 BASE_SCORE = 0
+
+pygame.init()
+background_sound_jojo = pygame.mixer.music.load('X2Download (mp3cut.net).mp3')
+pygame.mixer.music.play(-1)
+
 class Game:
     def __init__(self):
         pygame.init()

@@ -1,8 +1,9 @@
 
 from dino_runner.components.obstacles.cactus import Cactus
 from dino_runner.components.obstacles.largeCactus import LargeCactus
-from dino_runner.components.obstacles.bird import Bird
+from dino_runner.components.obstacles.bird import Bird, bird_sound
 from dino_runner.utils.constants import BIRD, LARGE_CACTUS, SMALL_CACTUS
+
 import pygame
 import random
 
@@ -19,6 +20,7 @@ class ObstacleManager:
                 self.obstacles.append(LargeCactus(LARGE_CACTUS))  
             elif randomNumber == 2:
                 self.obstacles.append(Bird(BIRD))
+                bird_sound.play()
 
 
         for obstacle in self.obstacles:

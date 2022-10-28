@@ -1,8 +1,9 @@
 
+import pygame
 from dino_runner.components.obstacles.obstacle import Obstacle
-
+pygame.init()
 Y_POS_BIRD = 250
-
+bird_sound = pygame.mixer.Sound('flamengo.wav')
 class Bird(Obstacle):
     def __init__(self, images):
         self.type = 0
